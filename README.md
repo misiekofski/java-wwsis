@@ -1,4 +1,5 @@
 Lista zadań 6 (17.12.2017)
+
 #Zadanie 1
 Napisz własną implementację generycznego stosu poprzez implementację
 interfejsu List (możesz również rozszerzyć klasę AbstractList). ​ Stos może
@@ -13,9 +14,11 @@ Kolekcja Talia powinna rozszerzać klasę AbstractCollection.
 Przygotuj metodę getOrdered dla Talii, która zwraca listę posortowanych kart według ich
 wartości. Zaimplementuj metodę shuffle, która przetasuje karty w kolekcji.
 W celu prezentacji programu zasymuluj początkowy fragment rozgrywki w grę karcianą:
-● przygotuj kolekcję z pełną talią kart
-● przetasuj karty w talii
-● “rozdaj” po 5 kart każdemu z 3 graczy
-● wyświetl karty każdego kolejnego gracza oraz pozostałe karty w talii
+
+* przygotuj kolekcję z pełną talią kart
+* przetasuj karty w talii
+* “rozdaj” po 5 kart każdemu z 3 graczy
+* wyświetl karty każdego kolejnego gracza oraz pozostałe karty w talii
+
 Pamiętaj o wykorzystywaniu typów wyliczeniowych oraz wyjątków, np. w sytuacji, kiedy do
 kolekcji kart dodawana jest drugi raz identyczna karta.
