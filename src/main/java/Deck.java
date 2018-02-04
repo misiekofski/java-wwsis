@@ -18,17 +18,16 @@ public class Deck {
                             .setSuit(suit)
                             .create()).collect(Collectors.toList());
 
-    //Cards by suit
-    private static final List<Card> clubs = makeSuit.apply(SuitType.CLUBS);
-    private static final List<Card> diamonds = makeSuit.apply(SuitType.DIAMONDS);
     private static final List<Card> hearts = makeSuit.apply(SuitType.HEARTS);
+    private static final List<Card> diamonds = makeSuit.apply(SuitType.DIAMONDS);
+    private static final List<Card> clubs = makeSuit.apply(SuitType.CLUBS);
     private static final List<Card> spades = makeSuit.apply(SuitType.SPADES);
 
     //unshuffled deck
     private static final List<Card> fullDeck =
-            Stream.concat(clubs.stream(),
+            Stream.concat(hearts.stream(),
                     Stream.concat(diamonds.stream(),
-                            Stream.concat(hearts.stream(), spades.stream()))).collect(Collectors.toList());
+                            Stream.concat(clubs.stream(), spades.stream()))).collect(Collectors.toList());
 
     //Pair/Tuple utility class
     private class Pair<T, U> {
@@ -50,7 +49,6 @@ public class Deck {
     public void shuffle() {
         final Random random = new Random();
 
-        // read out the rest of the cards
         List<Card> restCards = new ArrayList<>();
         Optional<Card> nextCard = this.dealOneCard();
 
@@ -59,13 +57,12 @@ public class Deck {
             nextCard = this.dealOneCard();
         }
 
-        // shuffle the cards that are left
         List<Card> shuffledCards = restCards.stream()
                 .map(card -> new Pair<Double, Card>(random.nextDouble(), card))
                 .sorted((a, b) -> a._1.compareTo(b._1))
                 .map(p -> p._2).collect(Collectors.toList());
 
-        //unsafe swap iterator
+        //that was in tutorial, withouth it it doesnt work :)
         this.deckItr = shuffledCards.stream().iterator();
     }
 

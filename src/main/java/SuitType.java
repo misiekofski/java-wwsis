@@ -2,9 +2,9 @@ import java.util.EnumSet;
 import java.util.Optional;
 
 public enum SuitType {
-    CLUBS("trefl"),
-    DIAMONDS("karo"),
     HEARTS("kier"),
+    DIAMONDS("karo"),
+    CLUBS("trefl"),
     SPADES("pik");
 
     private final String suit;
